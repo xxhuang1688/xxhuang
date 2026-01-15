@@ -1,0 +1,69 @@
+:root {
+    --primary: #00d2ff;
+    --accent: #3a7bd5;
+    --bg: #05080a;
+    --card-bg: #111820;
+    --text: #ffffff;
+    --text-dim: #a0aec0;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; /* ★日本語フォントを補完 */
+    line-height: 1.8;
+    overflow-x: hidden; /* ★スマホ表示時の横揺れ防止 */
+}
+
+/* ナビゲーションの基本形 */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* ★Safari対応 */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo { font-size: 22px; font-weight: 900; color: var(--primary); text-decoration: none; letter-spacing: 2px; }
+.nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
+.nav-links li { margin-left: 30px; }
+.nav-links a { color: var(--text); text-decoration: none; font-size: 14px; transition: 0.3s; }
+.nav-links a:hover { color: var(--primary); }
+
+/* レイアウト */
+.container { padding: 80px 10%; }
+
+h1 { 
+    font-size: 3.5rem; 
+    margin-bottom: 30px; 
+    background: linear-gradient(to right, var(--primary), var(--accent)); 
+    -webkit-background-clip: text; 
+    background-clip: text; /* ★標準プロパティを追加 */
+    -webkit-text-fill-color: transparent; 
+}
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+.card { 
+    background: var(--card-bg); 
+    padding: 40px; 
+    border-radius: 15px; 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    transition: 0.3s ease; /* ★ホバー時の動きを滑らかに */
+}
+
+/* ★カード内のテキストの色を個別に設定するとより綺麗です */
+.card h3 { color: var(--primary); margin-top: 0; }
+.card p { color: var(--text-dim); margin-bottom: 0; }
+
+.card:hover {
+    transform: translateY(-10px); /* ★浮き上がる演出 */
+    border-color: var(--primary);
+}
